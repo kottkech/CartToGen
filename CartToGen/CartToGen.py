@@ -20,9 +20,7 @@ class Backbone:
 
     def add(self, atom):
         self.chain += [atom]
-
-        
-
+	
         if self.length >= 1:
             self.chain[self.length].left += [self.chain[self.length-1]]
             if self.length >= 2:
@@ -34,19 +32,6 @@ class Backbone:
             self.chain[self.length - 1].right += [self.chain[self.length]]
 
         self.length += 1
-
-    def testPrint(self):
-        for atom in self.chain:
-            if len(atom.left) > 0:
-                #print(atom.left[0].atom + atom.left[0].index + "->", end='')
-                print atom.left[0].atom + atom.left[0].index + "->",
-            #print(atom.atom + atom.index, end='')
-            print atom.atom + atom.index,
-            if len(atom.right) > 0:
-                #print("<-" + atom.right[0].atom + atom.right[0].index, end='')
-                print "<-" + atom.right[0].atom + atom.right[0].index,
-            #print(" = " + str(atom.theta))
-            print " = " + str(atom.dihedral)
 
     def getBl(self):
         for atom in self.chain:
